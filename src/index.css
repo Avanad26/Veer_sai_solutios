@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #edf1f6;
+    color: #111;
+  }
+}
+
+@layer components {
+  /* Liquid glass effect for navbar & cards */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.45) 0%,
+      rgba(255,255,255,0.15) 20%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.15) 80%,
+      rgba(255,255,255,0.45) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Bounce animation for scroll arrow */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+.bounce { animation: bounce 1.2s ease-in-out infinite; }
+
+/* Section blur-in (vertical) */
+.blur-in {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(8px);
+  transition: opacity 1s ease-out, transform 1s ease-out, filter 1s ease-out;
+}
+.blur-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Slide from left */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.slide-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Mobile / tablet portrait fixes ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: clamp(1.6rem, 9vw, 2.4rem) !important;
+    letter-spacing: 0.08em !important;
+    white-space: normal !important;
+    -webkit-text-stroke: 0.4px #f2eeeb !important;
+    transform: scaleY(1.2) !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+  .hero-tagline {
+    font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
+    letter-spacing: 0.1em !important;
+    text-align: center !important;
+  }
+}
