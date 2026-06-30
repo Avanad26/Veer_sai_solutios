@@ -116,7 +116,7 @@ function ServiceCard({ service, index }) {
       ref={ref}
       className="blur-in"
       style={{
-        animationDelay: `${index * 0.08}s`,
+        animationDelay: `${index * 0.04}s`,
         background: 'rgba(255,255,255,0.45)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
