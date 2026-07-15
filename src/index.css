@@ -82,8 +82,9 @@
   transform: translateX(0);
 }
 
-/* Hide background video on mobile — iOS blocks autoplay on fixed elements */
-@media (max-width: 768px) {
+/* Hide background video on all touch devices (phones + tablets/iPads) —
+   iOS Safari blocks autoplay on position:fixed elements regardless of size */
+@media (hover: none) and (pointer: coarse) {
   .desktop-bg-video { display: none; }
 }
 
