@@ -15,14 +15,16 @@ export default function ScrollBg() {
   return (
     <div
       className="fixed inset-0 -z-10"
-      style={{ background: '#edf1f6' }}
+      style={{ background: 'linear-gradient(160deg, #dce8f4 0%, #edf1f6 50%, #d8e6f0 100%)' }}
     >
+      {/* Video — desktop only; iOS blocks autoplay on fixed elements */}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        className="desktop-bg-video"
         style={{
           position: 'absolute',
           inset: 0,

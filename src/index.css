@@ -82,6 +82,11 @@
   transform: translateX(0);
 }
 
+/* Hide background video on mobile — iOS blocks autoplay on fixed elements */
+@media (max-width: 768px) {
+  .desktop-bg-video { display: none; }
+}
+
 /* ── Mobile / tablet portrait fixes ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-heading {
