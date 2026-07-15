@@ -130,79 +130,68 @@ export default function ContactSection() {
             borderRadius: 20,
             padding: '2.5rem',
           }}>
+            {/* Name row */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+              {[{ label: 'Name', placeholder: 'Your name' }, { label: 'Company Name', placeholder: 'Company / Organisation' }].map(f => (
+                <div key={f.label} style={{ flex: 1 }}>
+                  <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>{f.label}</label>
+                  <input style={inputStyle} type="text" placeholder={f.placeholder} />
+                </div>
+              ))}
+            </div>
+
+            {/* Phone + Email */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+              {[{ label: 'Phone Number', type: 'tel', placeholder: '+91 97899 09873' }, { label: 'Email Address', type: 'email', placeholder: 'you@example.com' }].map(f => (
+                <div key={f.label} style={{ flex: 1 }}>
+                  <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>{f.label}</label>
+                  <input style={inputStyle} type={f.type} placeholder={f.placeholder} />
+                </div>
+              ))}
+            </div>
+
+            {/* City + Type of Requirement */}
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
               <div style={{ flex: 1 }}>
-                <label style={{
-                  display: 'block',
-                  fontFamily: "'Barlow', sans-serif",
-                  fontWeight: 500,
-                  fontSize: '0.7rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  color: 'rgba(26,58,92,0.6)',
-                  marginBottom: '0.4rem',
-                }}>
-                  First Name
-                </label>
-                <input style={inputStyle} type="text" placeholder="Ravi" />
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>City</label>
+                <input style={inputStyle} type="text" placeholder="Chennai" />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{
-                  display: 'block',
-                  fontFamily: "'Barlow', sans-serif",
-                  fontWeight: 500,
-                  fontSize: '0.7rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  color: 'rgba(26,58,92,0.6)',
-                  marginBottom: '0.4rem',
-                }}>
-                  Last Name
-                </label>
-                <input style={inputStyle} type="text" placeholder="Kumar" />
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Type of Requirement</label>
+                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
+                  <option value="">Select solution type</option>
+                  <option>STP — Sewage Treatment Plant</option>
+                  <option>WTP — Water Treatment Plant</option>
+                  <option>ETP — Effluent Treatment Plant</option>
+                  <option>Rainwater Harvesting</option>
+                  <option>Operation & Maintenance</option>
+                  <option>Solar-Powered Water System</option>
+                  <option>Other</option>
+                </select>
               </div>
             </div>
 
-            {[
-              { label: 'Email Address', type: 'email',  placeholder: 'ravi.kumar@example.com' },
-              { label: 'Phone Number', type: 'tel',    placeholder: '+91 98765 43210' },
-              { label: 'Company / Organisation', type: 'text', placeholder: 'Kumar Industries Pvt. Ltd.' },
-            ].map(field => (
-              <div key={field.label} style={{ marginBottom: '1rem' }}>
-                <label style={{
-                  display: 'block',
-                  fontFamily: "'Barlow', sans-serif",
-                  fontWeight: 500,
-                  fontSize: '0.7rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  color: 'rgba(26,58,92,0.6)',
-                  marginBottom: '0.4rem',
-                }}>
-                  {field.label}
-                </label>
-                <input style={inputStyle} type={field.type} placeholder={field.placeholder} />
+            {/* New/Existing + Capacity */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Project Type</label>
+                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
+                  <option value="">New or existing?</option>
+                  <option>New Project</option>
+                  <option>Existing Plant Upgrade</option>
+                  <option>Operation & Maintenance</option>
+                </select>
               </div>
-            ))}
+              <div style={{ flex: 1 }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Required Capacity</label>
+                <input style={inputStyle} type="text" placeholder="e.g. 100 KLD" />
+              </div>
+            </div>
 
+            {/* Message */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{
-                display: 'block',
-                fontFamily: "'Barlow', sans-serif",
-                fontWeight: 500,
-                fontSize: '0.7rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em',
-                color: 'rgba(26,58,92,0.6)',
-                marginBottom: '0.4rem',
-              }}>
-                Message
-              </label>
-              <textarea
-                rows={4}
-                style={{ ...inputStyle, resize: 'vertical' }}
-                placeholder="Tell us about your project or requirements..."
-              />
+              <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Message</label>
+              <textarea rows={3} style={{ ...inputStyle, resize: 'vertical' }} placeholder="Describe your project or requirement..." />
             </div>
 
             <button style={{
@@ -219,7 +208,7 @@ export default function ContactSection() {
               padding: '0.9rem 1.5rem',
               cursor: 'pointer',
             }}>
-              Send Message
+              Submit Your Requirement
             </button>
           </div>
         </div>
@@ -276,89 +265,6 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Office strip */}
-      <div style={{
-        marginTop: '5rem',
-        marginLeft: 'calc(-5%)',
-        marginRight: 'calc(-5%)',
-        background: '#0d2a5e',
-        padding: '1.25rem 5%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '0',
-        flexWrap: 'wrap',
-      }}>
-        {/* Have offices at label */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-
-          {/* Chennai */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/>
-              <polyline points="5 10 5 3 10 3 10 10"/><polyline points="14 3 19 3 19 10"/>
-              <rect x="9" y="14" width="6" height="7"/>
-            </svg>
-            <span style={{ fontFamily:"'Barlow',sans-serif", fontWeight:600, fontSize:'0.72rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.85)' }}>
-              Chennai
-            </span>
-          </div>
-
-          {/* Divider */}
-          <div style={{ width:1, height:28, background:'rgba(255,255,255,0.15)' }} />
-
-          {/* Bangalore */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/>
-              <polyline points="5 10 5 3 10 3 10 10"/><polyline points="14 3 19 3 19 10"/>
-              <rect x="9" y="14" width="6" height="7"/>
-            </svg>
-            <span style={{ fontFamily:"'Barlow',sans-serif", fontWeight:600, fontSize:'0.72rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.85)' }}>
-              Bangalore
-            </span>
-          </div>
-
-          {/* Have offices at — center label */}
-          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', padding:'0 0.5rem' }}>
-            <span style={{ fontFamily:"'Barlow',sans-serif", fontWeight:300, fontSize:'0.6rem', letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(255,255,255,0.45)', marginBottom:'0.15rem' }}>
-              Have Offices At
-            </span>
-            <div style={{ width:40, height:1, background:'rgba(255,255,255,0.2)' }} />
-          </div>
-
-          {/* Hyderabad */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/>
-              <polyline points="5 10 5 3 10 3 10 10"/><polyline points="14 3 19 3 19 10"/>
-              <rect x="9" y="14" width="6" height="7"/>
-            </svg>
-            <span style={{ fontFamily:"'Barlow',sans-serif", fontWeight:600, fontSize:'0.72rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.85)' }}>
-              Hyderabad
-            </span>
-          </div>
-
-          {/* Divider */}
-          <div style={{ width:1, height:28, background:'rgba(255,255,255,0.15)' }} />
-
-          {/* Contact */}
-          <div style={{ display:'flex', alignItems:'center', gap:'0.6rem' }}>
-            <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.27 7.69a16 16 0 006.06 6.06l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-            <div>
-              <div style={{ fontFamily:"'Barlow',sans-serif", fontWeight:300, fontSize:'0.58rem', letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(255,255,255,0.45)' }}>
-                Contact
-              </div>
-              <div style={{ fontFamily:"'Barlow',sans-serif", fontWeight:700, fontSize:'0.82rem', letterSpacing:'0.06em', color:'#fff' }}>
-                {c.phone}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
   )
 }

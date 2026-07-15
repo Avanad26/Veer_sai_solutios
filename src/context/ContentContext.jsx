@@ -2,64 +2,96 @@ import { createContext, useContext, useState, useCallback } from 'react'
 
 export const DEFAULT_CONTENT = {
   hero: {
-    heading: 'Veer Sai Water Solutions',
-    tagline: 'Pure Solutions. Sustainable Future.',
+    heading: 'Complete Turnkey Water Solutions',
+    subtitle: 'Design. Build. Operate. Sustain.',
+    tagline: 'Your Trusted Partner for Every Water Challenge',
+    description: 'Veer Sai Water Solutions provides complete water and wastewater management solutions for residential, commercial, institutional and industrial projects. From Water Treatment Plants, Sewage Treatment Plants and Effluent Treatment Plants to Rainwater Harvesting, Solar-Powered Water Systems and 24×7 Operation and Maintenance support, we manage every stage of your project.',
   },
   about: {
     kicker: '// Who We Are',
-    heading: 'Building Relationships. Delivering Solutions.',
-    subtext: 'Creating a Sustainable Future',
-    storyLead: 'We are a complete turnkey end-to-end water solution provider, delivering pure, safe and reliable water systems across India since 2014. From concept to commissioning and beyond.',
-    storyBody1: 'Headquartered in Chennai with offices in Bangalore and Hyderabad, our team of 75+ experts specialises in STP, WTP, ETP, rainwater harvesting, solar-powered water systems and O&M services.',
-    storyBody2: 'Under the leadership of Dushy D Veer — BNI Ambassador, Tiruvallur Region and Vice President, BNI Aditi Chapter — we have proudly served 30,000+ customers across residential, commercial and industrial sectors.',
+    heading: 'About Veer Sai Water Solutions',
+    subtext: 'A complete turnkey water and wastewater management company',
+    storyLead: 'Veer Sai Water Solutions is a complete turnkey water and wastewater management company serving residential, commercial, institutional and industrial customers.',
+    storyBody1: 'We provide Water Treatment Plants, Sewage Treatment Plants, Effluent Treatment Plants, Rainwater Harvesting Systems, Solar-Powered Water Systems and 24×7 Operation and Maintenance support.',
+    storyBody2: 'Our team manages the complete project journey — from site assessment and water analysis to engineering, equipment supply, installation, commissioning and long-term maintenance.',
     stats: [
-      { number: '75+',     label: 'Team Members' },
-      { number: '30,000+', label: 'Customers Served' },
-      { number: '10+',     label: 'Years Experience' },
-      { number: '3',       label: 'Cities' },
+      { number: '75+',  label: 'Experienced Professionals' },
+      { number: '600+', label: 'Successful Projects' },
+      { number: '24×7', label: 'O&M Support' },
+      { number: '3',    label: 'Cities Served' },
     ],
-    founderName: 'Dushy D Veer',
-    founderTitle: 'Founder & Director',
-    founderTagline: '"Solutions that flow today for a better tomorrow"',
+    founderName: '',
+    founderTitle: '',
+    founderTagline: '',
     founderPhoto: '/dushy-veer.png',
-    founderBadges: ['Ambassador · Tiruvallur Region', 'Vice President · BNI Aditi Chapter'],
+    founderBadges: [],
   },
   services: {
-    kicker: '// What We Do',
-    heading: 'Complete Turnkey Solutions',
-    subtext: 'From concept to commissioning and beyond',
+    kicker: '// Our Solutions',
+    heading: 'Our Water Treatment Solutions',
+    subtext: 'Complete turnkey water management for every requirement',
     cards: [
-      { icon: 'water',   title: 'STP — Sewage Treatment Plants',   desc: 'Advanced STP solutions for efficient treatment & reuse of wastewater.',                                    tags: ['High Efficiency', 'Low Maintenance', 'Eco Friendly'] },
-      { icon: 'factory', title: 'WTP — Water Treatment Plants',     desc: 'Reliable WTP systems delivering safe, clean & potable water.',                                             tags: ['Safe Drinking Water', 'Robust Technology', 'Consistent Performance'] },
-      { icon: 'flask',   title: 'ETP — Effluent Treatment Plants',  desc: 'Effective ETP solutions to treat industrial effluents & meet environmental norms.',                        tags: ['Compliance Ready', 'Cost Effective', 'Sustainable Operations'] },
-      { icon: 'rain',    title: 'Rainwater Harvesting',             desc: 'Smart rainwater harvesting solutions to conserve water for a better tomorrow.',                            tags: ['Water Conservation', 'Groundwater Recharge', 'Long Term Sustainability'] },
-      { icon: 'tool',    title: 'Operation & Maintenance',          desc: 'Expert O&M services ensuring optimal performance, uptime and long-term reliability.',                      tags: ['24/7 Support', 'Skilled Team', 'Performance Assurance'] },
-      { icon: 'sun',     title: 'Solar-Powered Water Systems',      desc: 'Sustainable & cost-effective solar-powered solutions for reliable water supply.',                          tags: ['Energy Efficient', 'Cost Savings', 'Environment Friendly'] },
+      {
+        icon: 'factory',
+        title: 'Water Treatment Plants – WTP',
+        desc: 'Get safe, clean and reliable water for residential, commercial and industrial use. Our WTP systems are designed based on source-water quality, usage, required capacity and final water-quality expectations.',
+        tags: ['Improved Water Quality', 'Consistent Output', 'Easy Maintenance'],
+      },
+      {
+        icon: 'water',
+        title: 'Sewage Treatment Plants – STP',
+        desc: 'Recycle wastewater and reduce freshwater consumption with an efficient Sewage Treatment Plant. We provide STP systems for apartments, gated communities, hotels, hospitals, institutions, IT parks and commercial buildings.',
+        tags: ['Water Reuse', 'PCB Compliance', 'Low Operational Cost'],
+      },
+      {
+        icon: 'flask',
+        title: 'Effluent Treatment Plants – ETP',
+        desc: 'Treat industrial wastewater effectively while supporting environmental compliance. Our ETP systems are customised according to the type of effluent, industry process and required discharge or reuse quality.',
+        tags: ['Regulatory Compliance', 'Industry-Specific', 'Reuse Ready'],
+      },
+      {
+        icon: 'rain',
+        title: 'Rainwater Harvesting',
+        desc: 'Convert rainwater into a valuable resource through scientifically designed systems. Our solutions support rainwater collection, filtration, storage and groundwater recharge for residential, commercial and industrial properties.',
+        tags: ['Groundwater Recharge', 'Water Conservation', 'Reduced Dependency'],
+      },
+      {
+        icon: 'tool',
+        title: 'Operation & Maintenance',
+        desc: 'Improve plant performance and reduce breakdowns through professional AMC and O&M services. Our trained professionals support WTP, STP, ETP and related equipment around the clock.',
+        tags: ['24×7 Support', 'Skilled Team', 'Preventive Maintenance'],
+      },
+      {
+        icon: 'sun',
+        title: 'Solar-Powered Water Systems',
+        desc: 'Reduce electricity consumption by integrating suitable pumping and water treatment systems with solar power. Solutions are developed according to site conditions, system requirements and operational feasibility.',
+        tags: ['Lower Energy Costs', 'Sustainable', 'Environment-Friendly'],
+      },
     ],
   },
   projects: {
     kicker: '// Our Work',
     heading: 'Featured Projects',
-    subtext: 'Delivering excellence across industries and geographies',
+    subtext: '600+ projects successfully delivered across residential, commercial and industrial sectors',
     items: [
-      { image: '/STP.png',       category: 'STP Project',  name: 'Municipal Sewage Treatment',       location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',              stats: [{ number: '500 KLD',  label: 'Capacity' },   { number: '6 Months', label: 'Completion' },    { number: '100%', label: 'Compliance' }] },
-      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',       location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                       stats: [{ number: '1000 KLD', label: 'Capacity' },   { number: '24/7',     label: 'Operation' },      { number: '99.9%', label: 'Uptime' }] },
-      { image: '/Etp.png',       category: 'ETP Project',  name: 'Textile Effluent Treatment',       location: 'Tiruppur, Tamil Nadu',   desc: 'Zero liquid discharge ETP for a textile dyeing unit. Advanced treatment stages including primary, secondary and tertiary treatment with colour removal and water recycling.',            stats: [{ number: 'ZLD',      label: 'Zero Discharge' }, { number: '800 KLD', label: 'Capacity' },   { number: '95%', label: 'Recycled' }] },
-      { image: '/solar_Wpt.png', category: 'Solar + WTP',  name: 'Solar-Powered Village Water Supply', location: 'Hyderabad, Telangana', desc: 'Sustainable solar-powered water treatment system supplying clean drinking water to 5000+ rural households. Fully off-grid with remote monitoring capabilities.',                    stats: [{ number: '5000+',    label: 'Households' }, { number: '100%',    label: 'Solar Powered' }, { number: '200 KLD', label: 'Capacity' }] },
+      { image: '/STP.png',       category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '500 KLD',  label: 'Capacity' }, { number: '6 Months', label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
+      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '1000 KLD', label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
+      { image: '/Etp.png',       category: 'ETP Project',  name: 'Textile Effluent Treatment',         location: 'Tiruppur, Tamil Nadu',   desc: 'Zero liquid discharge ETP for a textile dyeing unit. Advanced treatment stages including primary, secondary and tertiary treatment with colour removal and water recycling.',           stats: [{ number: 'ZLD',      label: 'Zero Discharge' }, { number: '800 KLD', label: 'Capacity' }, { number: '95%', label: 'Recycled' }] },
+      { image: '/solar_Wpt.png', category: 'Solar + WTP',  name: 'Solar-Powered Village Water Supply', location: 'Hyderabad, Telangana',   desc: 'Sustainable solar-powered water treatment system supplying clean drinking water to 5000+ rural households. Fully off-grid with remote monitoring capabilities.',                   stats: [{ number: '5000+',    label: 'Households' }, { number: '100%',    label: 'Solar Powered' }, { number: '200 KLD', label: 'Capacity' }] },
     ],
   },
   milestones: {
     kicker: 'Serving India since 2014',
     heading: '30,000+ Customers',
-    subtext: '75+ Team Members · Chennai · Bangalore · Hyderabad',
+    subtext: '75+ Team Members · Chennai · Bengaluru · Hyderabad',
   },
   contact: {
-    kicker: '// Get In Touch',
-    heading: 'Contact Us',
-    subtext: "We'd love to hear from you. Reach out and we'll respond within 24 hours.",
-    phone: '+91 9789909873',
-    address: '45, Anna Salai, Teynampet\nChennai — 600 018\nTamil Nadu, India',
-    email: 'info@veersaiwater.com\nsupport@veersaiwater.com',
+    kicker: '// Contact Us',
+    heading: "Let's Discuss Your Water Requirement",
+    subtext: 'Planning a new water treatment project? Facing a problem with an existing plant? Looking for AMC or 24×7 O&M support? Speak with our team.',
+    phone: '+91 97899 09873',
+    address: 'Chennai · Bengaluru · Hyderabad',
+    email: 'info@veersaiwater.com',
     hours: 'Mon – Sat: 9:00 AM – 6:00 PM\nSunday: Closed',
   },
 }
@@ -69,6 +101,11 @@ const ContentContext = createContext(null)
 export function ContentProvider({ children }) {
   const [content, setContent] = useState(() => {
     try {
+      const CONTENT_VERSION = 'v3'
+      if (localStorage.getItem('vs_content_version') !== CONTENT_VERSION) {
+        localStorage.removeItem('vs_content')
+        localStorage.setItem('vs_content_version', CONTENT_VERSION)
+      }
       const saved = localStorage.getItem('vs_content')
       if (saved) {
         const parsed = JSON.parse(saved)

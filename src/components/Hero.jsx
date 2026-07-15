@@ -110,7 +110,7 @@ export default function Hero() {
   const containerRef = useRef(null)
   const videoBgRef   = useRef(null)
   const { content }  = useContent()
-  const { heading, tagline } = content.hero
+  const { heading, subtitle, description, tagline } = content.hero
 
   useDualVideoBg(containerRef)
   useHeroScrollFade(videoBgRef)
@@ -122,11 +122,11 @@ export default function Hero() {
       <div
         ref={el => { videoBgRef.current = el }}
         className="absolute inset-0 overflow-hidden z-0"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, #d0dce8, #edf1f6)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, #0f2d52, #07141f)' }}
       >
         <div ref={containerRef} className="absolute inset-0" />
-        {/* White overlay — gives the half-white effect */}
-        <div className="absolute inset-0" style={{ background: 'rgba(255,255,255,0.5)' }} />
+        {/* Dark overlay — keeps video consistently dark */}
+        <div className="absolute inset-0" style={{ background: 'rgba(5,15,30,0.55)' }} />
         {/* Bottom gradient fade into next section */}
         <div
           className="absolute inset-x-0 bottom-0"
@@ -134,57 +134,118 @@ export default function Hero() {
         />
       </div>
 
-      {/* Tagline — left aligned, vertically centered */}
+      {/* Hero content — vertically centered */}
       <div
         className="absolute z-10"
-        style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}
+        style={{ top: '58%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', width: '92%', maxWidth: 1100 }}
       >
         <h1
           className="hero-heading"
           style={{
             fontFamily: "'Josefin Sans', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(1.4rem, 4.4vw, 4.4rem)',
-            letterSpacing: '0.28em',
+            fontSize: 'clamp(1.4rem, 3.8vw, 3.8rem)',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: '#f2eeeb',
             WebkitTextStroke: '0.6px #f2eeeb',
-            lineHeight: 1,
-            whiteSpace: 'nowrap',
+            lineHeight: 1.1,
             transform: 'scaleY(1.4)',
-            transformOrigin: 'left center',
+            transformOrigin: 'center center',
             textShadow: '0 0 40px rgba(200,200,200,0.18)',
           }}
         >
           {heading}
         </h1>
-        <p
-          className="hero-tagline"
-          style={{
+
+        {subtitle && (
+          <p style={{
+            fontFamily: "'Josefin Sans', sans-serif",
+            fontWeight: 300,
+            fontSize: 'clamp(0.85rem, 1.5vw, 1.15rem)',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'rgba(242,238,235,0.75)',
+            marginTop: '1rem',
+          }}>
+            {subtitle}
+          </p>
+        )}
+
+        {tagline && (
+          <p className="hero-tagline" style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontWeight: 400,
+            fontSize: 'clamp(0.78rem, 1.2vw, 1rem)',
+            letterSpacing: '0.06em',
+            color: 'rgba(242,238,235,0.9)',
+            marginTop: '0.6rem',
+          }}>
+            {tagline}
+          </p>
+        )}
+
+        {description && (
+          <p style={{
             fontFamily: "'Barlow', sans-serif",
             fontWeight: 300,
-            fontSize: 'clamp(0.85rem, 1.6vw, 1.2rem)',
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            fontStyle: 'italic',
-            color: '#f2eeeb',
-            marginTop: '0.75rem',
-          }}
-        >
-          {tagline}
-        </p>
+            fontSize: 'clamp(0.75rem, 1.1vw, 0.9rem)',
+            color: 'rgba(242,238,235,0.7)',
+            maxWidth: '72ch',
+            margin: '1.25rem auto 0',
+            lineHeight: 1.85,
+            letterSpacing: '0.01em',
+          }}>
+            {description}
+          </p>
+        )}
+
+        <div className="hero-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
+          <a
+            href="#contact"
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#fff',
+              background: '#0d2a5e',
+              border: '1px solid #0d2a5e',
+              padding: '0.8rem 1.75rem',
+              borderRadius: 8,
+              textDecoration: 'none',
+              transition: 'background 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = '#091e42'}
+            onMouseLeave={e => e.currentTarget.style.background = '#0d2a5e'}
+          >
+            Get a Free Consultation
+          </a>
+          <a
+            href="#services"
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#f2eeeb',
+              background: 'transparent',
+              border: '1px solid rgba(242,238,235,0.5)',
+              padding: '0.8rem 1.75rem',
+              borderRadius: 8,
+              textDecoration: 'none',
+              transition: 'border-color 0.2s, background 0.2s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(242,238,235,0.9)'; e.currentTarget.style.background = 'rgba(242,238,235,0.08)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(242,238,235,0.5)'; e.currentTarget.style.background = 'transparent' }}
+          >
+            Explore Our Solutions
+          </a>
+        </div>
       </div>
 
-      {/* Bounce arrow */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
-        <svg
-          className="bounce w-6 h-6 text-gray-400"
-          fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </div>
     </section>
   )
 }

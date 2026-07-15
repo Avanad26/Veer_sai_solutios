@@ -87,7 +87,6 @@
   .hero-heading {
     font-size: clamp(1.6rem, 9vw, 2.4rem) !important;
     letter-spacing: 0.08em !important;
-    white-space: normal !important;
     -webkit-text-stroke: 0.4px #f2eeeb !important;
     transform: scaleY(1.2) !important;
     text-align: center !important;
@@ -97,5 +96,36 @@
     font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
     letter-spacing: 0.1em !important;
     text-align: center !important;
+  }
+  .hero-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .hero-buttons a {
+    width: auto !important;
+    min-width: 200px;
+  }
+}
+
+/* Mobile landscape — short viewport */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero-heading {
+    font-size: clamp(1rem, 5vw, 1.6rem) !important;
+    letter-spacing: 0.06em !important;
+    transform: scaleY(1.1) !important;
+    line-height: 1.15 !important;
+  }
+  .hero-tagline {
+    font-size: 0.7rem !important;
+    margin-top: 0.3rem !important;
+  }
+  .hero-buttons {
+    flex-direction: row !important;
+    margin-top: 1rem !important;
+  }
+  .hero-buttons a {
+    padding: 0.55rem 1.2rem !important;
+    font-size: 0.65rem !important;
+    min-width: unset !important;
   }
 }

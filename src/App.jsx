@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
 import { ContentProvider } from './context/ContentContext'
-import Navbar          from './components/Navbar'
-import Hero            from './components/Hero'
-import ScrollBg        from './components/ScrollBg'
-import SectionThree    from './components/SectionThree'
-import ServicesSection from './components/ServicesSection'
-import ProjectsSection from './components/ProjectsSection'
-import AboutSection    from './components/AboutSection'
-import ContactSection  from './components/ContactSection'
-import AdminPanel      from './pages/AdminPanel'
+import Navbar            from './components/Navbar'
+import Hero              from './components/Hero'
+import ScrollBg          from './components/ScrollBg'
+import AboutSection      from './components/AboutSection'
+import ServicesSection   from './components/ServicesSection'
+import ProjectsSection   from './components/ProjectsSection'
+import SectionThree      from './components/SectionThree'
+import IndustriesSection from './components/IndustriesSection'
+import ProcessSection    from './components/ProcessSection'
+import ContactSection    from './components/ContactSection'
+import CustomerCounter   from './components/CustomerCounter'
+import Footer            from './components/Footer'
+import AdminPanel        from './pages/AdminPanel'
 
 function Site() {
   const [showAdmin, setShowAdmin] = useState(window.location.hash === '#admin')
@@ -30,11 +34,15 @@ function Site() {
       <main className="relative z-10">
         <Hero />
         <AboutSection />
+        <CustomerCounter />
         <ServicesSection />
-        <ProjectsSection />
         <SectionThree />
+        <IndustriesSection />
+        <ProjectsSection />
+        <ProcessSection />
         <ContactSection />
       </main>
+      <Footer />
     </div>
   )
 }

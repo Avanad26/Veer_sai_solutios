@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 
 const LINKS = [
-  { label: 'Home',     href: '#home' },
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact',  href: '#contact' },
+  { label: 'Home',       href: '#home' },
+  { label: 'About',      href: '#about' },
+  { label: 'Services',   href: '#services' },
+  { label: 'Industries', href: '#industries' },
+  { label: 'Projects',   href: '#projects' },
+  { label: 'Contact',    href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -53,7 +54,8 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 px-3 py-2 rounded-md hover:bg-black/5 transition-colors"
+                className="text-sm font-medium px-3 py-2 rounded-md hover:bg-black/5 transition-colors"
+                style={{ color: scrolled ? '#1a3a5c' : '#fff' }}
               >
                 {link.label}
               </a>
@@ -83,21 +85,21 @@ export default function Navbar() {
             >
               <span style={{
                 display: 'block', width: 22, height: 2,
-                background: '#0d2a5e', borderRadius: 2,
+                background: scrolled || menuOpen ? '#0d2a5e' : '#fff', borderRadius: 2,
                 transform: menuOpen ? 'translateY(5px) rotate(45deg)' : 'none',
-                transition: 'transform 0.25s',
+                transition: 'transform 0.25s, background 0.4s',
               }} />
               <span style={{
                 display: 'block', width: 22, height: 2,
-                background: '#0d2a5e', borderRadius: 2,
+                background: scrolled || menuOpen ? '#0d2a5e' : '#fff', borderRadius: 2,
                 opacity: menuOpen ? 0 : 1,
-                transition: 'opacity 0.2s',
+                transition: 'opacity 0.2s, background 0.4s',
               }} />
               <span style={{
                 display: 'block', width: 22, height: 2,
-                background: '#0d2a5e', borderRadius: 2,
+                background: scrolled || menuOpen ? '#0d2a5e' : '#fff', borderRadius: 2,
                 transform: menuOpen ? 'translateY(-5px) rotate(-45deg)' : 'none',
-                transition: 'transform 0.25s',
+                transition: 'transform 0.25s, background 0.4s',
               }} />
             </button>
           </div>
