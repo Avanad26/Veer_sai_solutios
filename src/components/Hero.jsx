@@ -23,7 +23,8 @@ function useDualVideoBg(containerRef) {
     function makeVideo() {
       const v = document.createElement('video')
       v.muted = true
-      v.playsInline = true
+      v.setAttribute('playsinline', '')
+      v.setAttribute('webkit-playsinline', '')
       v.preload = 'auto'
       v.loop = true
       v.crossOrigin = 'anonymous'

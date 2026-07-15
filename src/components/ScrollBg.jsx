@@ -1,10 +1,24 @@
+import { useEffect, useRef } from 'react'
+
 export default function ScrollBg() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.setAttribute('playsinline', '')
+    v.setAttribute('webkit-playsinline', '')
+    v.muted = true
+    v.play().catch(() => {})
+  }, [])
+
   return (
     <div
       className="fixed inset-0 -z-10"
       style={{ background: '#edf1f6' }}
     >
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
@@ -21,7 +35,7 @@ export default function ScrollBg() {
         <source src="/bubble.mp4" type="video/mp4" />
       </video>
 
-      {/* Light overlay to soften the video */}
+      {/* Light overlay */}
       <div
         className="absolute inset-0"
         style={{ background: 'rgba(240,244,248,0.55)' }}
