@@ -80,7 +80,7 @@ export default function AboutSection() {
             fontWeight: 300,
             fontSize: '1.125rem',
             lineHeight: 1.75,
-            color: 'rgba(26,58,92,0.85)',
+            color: 'rgba(26,58,92,1)',
             marginBottom: '1.5rem',
           }}>
             {a.storyLead}
@@ -90,7 +90,7 @@ export default function AboutSection() {
             fontWeight: 300,
             fontSize: '0.875rem',
             lineHeight: 2,
-            color: 'rgba(26,58,92,0.7)',
+            color: 'rgba(26,58,92,0.95)',
             marginBottom: '1rem',
           }}>
             {a.storyBody1}
@@ -100,7 +100,7 @@ export default function AboutSection() {
             fontWeight: 300,
             fontSize: '0.875rem',
             lineHeight: 2,
-            color: 'rgba(26,58,92,0.7)',
+            color: 'rgba(26,58,92,0.95)',
           }}>
             {a.storyBody2}
           </p>
@@ -114,7 +114,7 @@ export default function AboutSection() {
             fontSize: '0.7rem',
             textTransform: 'uppercase',
             letterSpacing: '0.12em',
-            color: 'rgba(26,58,92,0.5)',
+            color: 'rgba(26,58,92,0.85)',
             marginBottom: '1rem',
           }}>
             Why Choose Us
@@ -138,7 +138,7 @@ export default function AboutSection() {
                   fontFamily: "'Barlow', sans-serif",
                   fontWeight: 300,
                   fontSize: '0.875rem',
-                  color: 'rgba(26,58,92,0.75)',
+                  color: 'rgba(26,58,92,0.95)',
                   lineHeight: 1.5,
                 }}>
                   {value}
