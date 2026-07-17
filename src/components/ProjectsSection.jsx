@@ -195,6 +195,100 @@ function ProjectContent({ project, slideClass }) {
   )
 }
 
+function GatedProjectRow({ project }) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add('visible'); observer.unobserve(el) } },
+      { threshold: 0.08 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} className="slide-left" style={{ borderRadius: 20, overflow: 'hidden', position: 'relative', border: '1px solid rgba(13,33,55,0.12)' }}>
+      {/* Two images side by side */}
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1, background: '#07141f', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          <img src={project.image} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+        <div style={{ width: 2, background: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
+        <div style={{ flex: 1, background: '#07141f', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          <img src={project.imageRight} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+      </div>
+
+      {/* Gradient overlay + info */}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        background: 'linear-gradient(to top, rgba(7,20,31,0.95) 0%, rgba(7,20,31,0.6) 60%, transparent 100%)',
+        padding: '2.5rem 2.5rem 2rem',
+      }}>
+        {/* Category pill */}
+        <span style={{
+          display: 'inline-block',
+          fontFamily: "'Barlow', sans-serif",
+          fontWeight: 500,
+          fontSize: '0.72rem',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          background: 'rgba(255,255,255,0.15)',
+          color: 'rgba(255,255,255,0.85)',
+          padding: '0.25rem 0.75rem',
+          borderRadius: 9999,
+          marginBottom: '0.85rem',
+        }}>
+          {project.category}
+        </span>
+
+        <h3 style={{
+          fontFamily: "'Josefin Sans', sans-serif",
+          fontWeight: 400,
+          fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: '#fff',
+          lineHeight: 1.15,
+          marginBottom: '1.25rem',
+        }}>
+          {project.name}
+        </h3>
+
+        {/* Stats */}
+        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+          {project.stats.map(stat => (
+            <div key={stat.label}>
+              <p style={{
+                fontFamily: "'Josefin Sans', sans-serif",
+                fontWeight: 200,
+                fontSize: '1.5rem',
+                color: '#fff',
+                lineHeight: 1,
+              }}>
+                {stat.number}
+              </p>
+              <p style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontWeight: 300,
+                fontSize: '0.7rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'rgba(255,255,255,0.55)',
+                marginTop: '0.35rem',
+              }}>
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ProjectRow({ project, index }) {
   const reversed = index % 2 !== 0
 
@@ -268,9 +362,11 @@ export default function ProjectsSection() {
 
       {/* Projects list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
-        {items.map((project, i) => (
-          <ProjectRow key={project.name} project={project} index={i} />
-        ))}
+        {items.map((project, i) =>
+          project.imageRight
+            ? <GatedProjectRow key={project.name} project={project} />
+            : <ProjectRow key={project.name} project={project} index={i} />
+        )}
       </div>
     </section>
   )

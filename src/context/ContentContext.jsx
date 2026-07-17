@@ -16,7 +16,7 @@ export const DEFAULT_CONTENT = {
     storyBody2: 'Our team manages the complete project journey — from site assessment and water analysis to engineering, equipment supply, installation, commissioning and long-term maintenance.',
     stats: [
       { number: '75+',  label: 'Experienced Professionals' },
-      { number: '600+', label: 'Successful Projects' },
+      { number: '500+', label: 'Successful Projects' },
       { number: '24×7', label: 'O&M Support' },
       { number: '3',    label: 'Cities Served' },
     ],
@@ -72,8 +72,9 @@ export const DEFAULT_CONTENT = {
   projects: {
     kicker: '// Our Work',
     heading: 'Featured Projects',
-    subtext: '600+ projects successfully delivered across residential, commercial and industrial sectors',
+    subtext: '500+ projects successfully delivered across residential, commercial and industrial sectors',
     items: [
+      { image: '/Gated_left.jpeg', imageRight: '/Gated_right.jpeg', category: 'STP Project', name: 'Gated Community', location: 'South India', desc: 'Complete turnkey STP solutions for gated communities and residential townships. Designed for maximum reliability with 24×7 automated operation and real-time monitoring to ensure zero disruption.', stats: [{ number: 'Upto 800 KLD', label: 'Capacity' }, { number: '24×7', label: 'Operation' }, { number: '99.9%', label: 'Uptime' }] },
       { image: '/Municipal.jpeg', category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '500 KLD',  label: 'Capacity' }, { number: '1 Year',   label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
       { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '2 MLD',    label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
       { image: '/Etp.png',       category: 'ETP Project',  name: 'Textile Effluent Treatment',         location: 'Tiruppur, Tamil Nadu',   desc: 'Zero liquid discharge ETP for a textile dyeing unit. Advanced treatment stages including primary, secondary and tertiary treatment with colour removal and water recycling.',           stats: [{ number: 'ZLD',      label: 'Zero Discharge' }, { number: '800 KLD', label: 'Capacity' }, { number: '95%', label: 'Recycled' }] },
@@ -90,9 +91,9 @@ export const DEFAULT_CONTENT = {
     heading: "Let's Discuss Your Water Requirement",
     subtext: 'Planning a new water treatment project? Facing a problem with an existing plant? Looking for AMC or 24×7 O&M support? Speak with our team.',
     phone: '+91 8122765100',
-    address: 'Complete South India\nChennai · Bengaluru · Hyderabad · Coimbatore & Other Regions',
-    email: 'info@veersaiwater.com',
-    hours: 'Mon – Sat: 9:00 AM – 6:00 PM\nSunday: Closed',
+    address: 'Chennai · Bengaluru · Hyderabad · Coimbatore & Other Regions in South India',
+    email: 'support@veersaiwatertech.com',
+    hours: 'Monday - Sunday',
   },
 }
 

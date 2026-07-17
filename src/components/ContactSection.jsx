@@ -128,7 +128,7 @@ export default function ContactSection() {
   }
 
   const INFO = [
-    { icon: INFO_ICONS.location, label: 'Complete South India', value: c.address },
+    { icon: INFO_ICONS.location, label: 'Service Area', value: c.address },
     { icon: INFO_ICONS.phone,    label: 'Phone',           value: c.phone },
     { icon: INFO_ICONS.email,    label: 'Email',           value: c.email },
     { icon: INFO_ICONS.hours,    label: 'Working Hours',   value: c.hours },

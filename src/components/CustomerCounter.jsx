@@ -42,9 +42,8 @@ export default function CustomerCounter() {
   }, [])
 
   const mainCount    = useCounter(30000, triggered, 1000, 0)
-  const projectCount = useCounter(600,   triggered, 800,  100)
+  const projectCount = useCounter(500,   triggered, 800,  100)
   const yearCount    = useCounter(10,    triggered, 700,  150)
-  const cityCount    = useCounter(3,     triggered, 500,  200)
 
   return (
     <section
@@ -108,7 +107,6 @@ export default function CustomerCounter() {
         {[
           { value: projectCount, suffix: '+', label: 'Projects Completed' },
           { value: yearCount,    suffix: '+', label: 'Years of Experience' },
-          { value: cityCount,    suffix: '',  label: 'Cities' },
         ].map(s => (
           <div key={s.label} style={{ textAlign: 'center' }}>
             <p style={{
@@ -134,6 +132,31 @@ export default function CustomerCounter() {
             </p>
           </div>
         ))}
+
+        {/* Cities — static, not a counter */}
+        <div style={{ textAlign: 'center' }}>
+          <p style={{
+            fontFamily: "'Josefin Sans', sans-serif",
+            fontWeight: 700,
+            fontSize: 'clamp(0.85rem, 1.8vw, 1.1rem)',
+            color: '#07141f',
+            letterSpacing: '0.06em',
+            lineHeight: 1.6,
+          }}>
+            Chennai · Bengaluru<br />Hyderabad · Coimbatore<br />& Other Regions in South India
+          </p>
+          <p style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontWeight: 600,
+            fontSize: '0.7rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.12em',
+            color: '#1a3a5c',
+            marginTop: '0.4rem',
+          }}>
+            Cities Served
+          </p>
+        </div>
       </div>
     </section>
   )
