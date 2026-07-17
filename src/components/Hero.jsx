@@ -221,7 +221,7 @@ export default function Hero() {
             onMouseEnter={e => e.currentTarget.style.background = '#091e42'}
             onMouseLeave={e => e.currentTarget.style.background = '#0d2a5e'}
           >
-            Get a Free Consultation
+            Get a Free Expert Consultation
           </a>
           <a
             href="#services"

@@ -43,7 +43,6 @@ export default function CustomerCounter() {
 
   const mainCount    = useCounter(30000, triggered, 1000, 0)
   const projectCount = useCounter(500,   triggered, 800,  100)
-  const yearCount    = useCounter(10,    triggered, 700,  150)
 
   return (
     <section
@@ -100,15 +99,13 @@ export default function CustomerCounter() {
       <div style={{
         display: 'flex',
         justifyContent: 'center',
-        gap: '3rem',
+        alignItems: 'stretch',
         marginTop: '3.5rem',
         flexWrap: 'wrap',
       }}>
-        {[
-          { value: projectCount, suffix: '+', label: 'Projects Completed' },
-          { value: yearCount,    suffix: '+', label: 'Years of Experience' },
-        ].map(s => (
-          <div key={s.label} style={{ textAlign: 'center' }}>
+        {/* 500+ Projects */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', padding: '2rem 3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <p style={{
               fontFamily: "'Josefin Sans', sans-serif",
               fontWeight: 700,
@@ -117,7 +114,7 @@ export default function CustomerCounter() {
               letterSpacing: '0.06em',
               lineHeight: 1,
             }}>
-              {s.value}{s.suffix}
+              {projectCount}+
             </p>
             <p style={{
               fontFamily: "'Barlow', sans-serif",
@@ -128,13 +125,29 @@ export default function CustomerCounter() {
               color: '#1a3a5c',
               marginTop: '0.4rem',
             }}>
-              {s.label}
+              Projects Completed
             </p>
           </div>
-        ))}
+        </div>
 
-        {/* Cities — static, not a counter */}
-        <div style={{ textAlign: 'center' }}>
+        {/* Decades of Experience */}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', padding: '2rem 3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <p style={{
+              fontFamily: "'Josefin Sans', sans-serif",
+              fontWeight: 700,
+              fontSize: 'clamp(0.85rem, 1.8vw, 1.1rem)',
+              color: '#07141f',
+              letterSpacing: '0.06em',
+              lineHeight: 1.6,
+            }}>
+              Decades of Experience
+            </p>
+          </div>
+        </div>
+
+        {/* Cities */}
+        <div style={{ textAlign: 'center', padding: '2rem 3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <p style={{
             fontFamily: "'Josefin Sans', sans-serif",
             fontWeight: 700,
