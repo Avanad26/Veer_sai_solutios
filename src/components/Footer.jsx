@@ -30,7 +30,7 @@ export default function Footer() {
         </h3>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a
-            href="tel:+919789909873"
+            href="tel:+918122765100"
             style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', padding: '0.8rem 1.75rem', borderRadius: 8, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >
             <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -39,7 +39,7 @@ export default function Footer() {
             Call Now
           </a>
           <a
-            href="https://wa.me/919789909873"
+            href="https://wa.me/918122765100"
             style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', background: '#25d366', border: '1px solid #25d366', padding: '0.8rem 1.75rem', borderRadius: 8, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >
             <svg width={14} height={14} viewBox="0 0 24 24" fill="currentColor">
@@ -153,8 +153,8 @@ export default function Footer() {
             <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
               Chennai · Bengaluru · Hyderabad · Coimbatore & Other Regions
             </p>
-            <a href="tel:+919789909873" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', color: '#fff', textDecoration: 'none', letterSpacing: '0.02em' }}>
-              +91 9789909873
+            <a href="tel:+918122765100" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', color: '#fff', textDecoration: 'none', letterSpacing: '0.02em' }}>
+              +91 8122765100
             </a>
             <a href="mailto:info@veersaiwater.com" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#fff'}

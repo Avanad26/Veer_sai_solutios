@@ -65,7 +65,7 @@ export default function Navbar() {
           {/* Right side — CTA + hamburger */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+919789909873"
+              href="tel:+918122765100"
               className="flex items-center gap-2 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
               style={{ background: '#0d2a5e' }}
               onMouseEnter={e => e.currentTarget.style.background = '#091e42'}

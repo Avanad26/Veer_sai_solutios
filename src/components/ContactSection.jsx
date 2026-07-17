@@ -188,7 +188,7 @@ export default function ContactSection() {
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
               <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Phone Number *</label>
-                <input required style={inputStyle} type="tel" placeholder="+91 9789909873" value={form.phone} onChange={set('phone')} />
+                <input required style={inputStyle} type="tel" placeholder="+91 8122765100" value={form.phone} onChange={set('phone')} />
               </div>
               <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Email Address</label>

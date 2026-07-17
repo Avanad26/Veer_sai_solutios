@@ -89,7 +89,7 @@ export const DEFAULT_CONTENT = {
     kicker: '// Contact Us',
     heading: "Let's Discuss Your Water Requirement",
     subtext: 'Planning a new water treatment project? Facing a problem with an existing plant? Looking for AMC or 24×7 O&M support? Speak with our team.',
-    phone: '+91 9789909873',
+    phone: '+91 8122765100',
     address: 'Complete South India\nChennai · Bengaluru · Hyderabad · Coimbatore & Other Regions',
     email: 'info@veersaiwater.com',
     hours: 'Mon – Sat: 9:00 AM – 6:00 PM\nSunday: Closed',
