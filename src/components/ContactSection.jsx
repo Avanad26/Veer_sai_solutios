@@ -80,34 +80,32 @@ export default function ContactSection() {
     e.preventDefault()
     setStatus('sending')
 
-    const row = (label, value) => value
-      ? `<tr><td style="padding:10px 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:600;color:#0d2a5e;background:#f0f6ff;border-bottom:1px solid #e0eaf5;white-space:nowrap;width:160px">${label}</td><td style="padding:10px 16px;font-family:Arial,sans-serif;font-size:13px;color:#1a2d45;background:#fff;border-bottom:1px solid #e0eaf5">${value}</td></tr>`
-      : ''
+    const line = (label, value) => value ? `${label.padEnd(16)}: ${value}` : ''
+    const divider = '─'.repeat(48)
 
-    const htmlMessage = `
-<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;border:1px solid #d0e4f7;border-radius:12px;overflow:hidden">
-  <div style="background:linear-gradient(135deg,#0d2a5e,#1a6eb5);padding:28px 32px">
-    <img src="https://veer-sai-solutios.onrender.com/logo.png" alt="Veer Sai" style="height:36px;filter:brightness(0) invert(1);display:block;margin-bottom:12px" />
-    <h1 style="color:#fff;font-size:20px;margin:0;letter-spacing:1px">New Enquiry Received</h1>
-    <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:6px 0 0">${form.requirement || 'General Enquiry'}</p>
-  </div>
-  <table style="width:100%;border-collapse:collapse">
-    ${row('Name', form.name)}
-    ${row('Company', form.company)}
-    ${row('Phone', form.phone)}
-    ${row('Email', form.email)}
-    ${row('City', form.city)}
-    ${row('Requirement', form.requirement)}
-    ${row('Project Type', form.projectType)}
-    ${row('Capacity', form.capacity)}
-    ${form.message ? `<tr><td colspan="2" style="padding:10px 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:600;color:#0d2a5e;background:#f0f6ff;border-bottom:1px solid #e0eaf5">Message</td></tr><tr><td colspan="2" style="padding:12px 16px;font-family:Arial,sans-serif;font-size:13px;color:#1a2d45;background:#fff;line-height:1.6">${form.message.replace(/\n/g, '<br/>')}</td></tr>` : ''}
-  </table>
-  <div style="background:#f7fafd;padding:18px 24px;text-align:center;border-top:1px solid #e0eaf5">
-    <a href="tel:+91${form.phone}" style="display:inline-block;background:#0d2a5e;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:10px 24px;border-radius:6px;margin-right:8px">Call ${form.name.split(' ')[0]}</a>
-    ${form.email ? `<a href="mailto:${form.email}" style="display:inline-block;background:#fff;color:#0d2a5e;text-decoration:none;font-size:13px;font-weight:600;padding:10px 24px;border-radius:6px;border:1px solid #d0e4f7">Reply by Email</a>` : ''}
-    <p style="color:#8aa0b8;font-size:11px;margin:14px 0 0">Veer Sai Water Solutions · +91 8122765100 · info@veersaiwater.com</p>
-  </div>
-</div>`
+    const plainMessage = [
+      divider,
+      'VEER SAI WATER SOLUTIONS — NEW ENQUIRY',
+      divider,
+      '',
+      '  CONTACT DETAILS',
+      line('  Name', form.name),
+      line('  Company', form.company),
+      line('  Phone', form.phone),
+      line('  Email', form.email),
+      line('  City', form.city),
+      '',
+      '  PROJECT DETAILS',
+      line('  Requirement', form.requirement),
+      line('  Project Type', form.projectType),
+      line('  Capacity', form.capacity),
+      form.message ? `\n  MESSAGE\n  ${form.message}` : '',
+      '',
+      divider,
+      'Veer Sai Water Solutions',
+      '+91 8122765100  |  info@veersaiwater.com',
+      divider,
+    ].filter(Boolean).join('\n')
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -115,10 +113,10 @@ export default function ContactSection() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New Enquiry from ${form.name}${form.company ? ' — ' + form.company : ''} | ${form.requirement || 'Veer Sai Website'}`,
+          subject: `New Enquiry — ${form.name}${form.company ? ' / ' + form.company : ''}${form.requirement ? ' | ' + form.requirement : ''}`,
           from_name: form.name || 'Veer Sai Website',
           replyto: form.email || '',
-          message: htmlMessage,
+          message: plainMessage,
         }),
       })
       const data = await res.json()
