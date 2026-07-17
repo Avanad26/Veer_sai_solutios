@@ -75,8 +75,8 @@ export const DEFAULT_CONTENT = {
     subtext: '500+ projects successfully delivered across residential, commercial and industrial sectors',
     items: [
       { image: '/Gated_left.jpeg', imageRight: '/Gated_right.jpeg', category: 'STP Project', name: 'Gated Community', location: 'South India', desc: 'Complete turnkey STP solutions for gated communities and residential townships. Designed for maximum reliability with 24×7 automated operation and real-time monitoring to ensure zero disruption.', stats: [{ number: 'Upto 800 KLD', label: 'Capacity' }, { number: '24×7', label: 'Operation' }, { number: '99.9%', label: 'Uptime' }] },
-      { image: '/Municipal.jpeg', category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '500 KLD',  label: 'Capacity' }, { number: '1 Year',   label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
-      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '2 MLD',    label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
+      { image: '/Municipal.jpeg', category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 2 MLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '2 MLD',  label: 'Capacity' }, { number: '1 Year',   label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
+      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '1000 KLD',    label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
       { image: '/Etp.png',       category: 'ETP Project',  name: 'Textile Effluent Treatment',         location: 'Tiruppur, Tamil Nadu',   desc: 'Zero liquid discharge ETP for a textile dyeing unit. Advanced treatment stages including primary, secondary and tertiary treatment with colour removal and water recycling.',           stats: [{ number: 'ZLD',      label: 'Zero Discharge' }, { number: '800 KLD', label: 'Capacity' }, { number: '95%', label: 'Recycled' }] },
       { image: '/solar_Wpt.png', category: 'Solar + WTP',  name: 'Solar-Powered Village Water Supply', location: 'Hyderabad, Telangana',   desc: 'Sustainable solar-powered water treatment system supplying clean drinking water to 5000+ rural households. Fully off-grid with remote monitoring capabilities.',                   stats: [{ number: '5000+',    label: 'Households' }, { number: '100%',    label: 'Solar Powered' }, { number: '200 KLD', label: 'Capacity' }] },
     ],
@@ -102,7 +102,7 @@ const ContentContext = createContext(null)
 export function ContentProvider({ children }) {
   const [content, setContent] = useState(() => {
     try {
-      const CONTENT_VERSION = 'v4'
+      const CONTENT_VERSION = 'v5'
       if (localStorage.getItem('vs_content_version') !== CONTENT_VERSION) {
         localStorage.removeItem('vs_content')
         localStorage.setItem('vs_content_version', CONTENT_VERSION)
