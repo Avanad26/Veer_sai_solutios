@@ -74,8 +74,8 @@ export const DEFAULT_CONTENT = {
     heading: 'Featured Projects',
     subtext: '600+ projects successfully delivered across residential, commercial and industrial sectors',
     items: [
-      { image: '/STP.png',       category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '500 KLD',  label: 'Capacity' }, { number: '6 Months', label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
-      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '1000 KLD', label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
+      { image: '/Municipal.jpeg', category: 'STP Project',  name: 'Municipal Sewage Treatment',         location: 'Chennai, Tamil Nadu',    desc: 'Complete turnkey STP installation for a residential township. Designed for 500 KLD capacity with advanced biological treatment process ensuring treated water meets CPCB norms.',           stats: [{ number: '500 KLD',  label: 'Capacity' }, { number: '1 Year',   label: 'Completion' }, { number: '100%', label: 'Compliance' }] },
+      { image: '/Wtp.png',       category: 'WTP Project',  name: 'Industrial Water Treatment',         location: 'Bangalore, Karnataka',   desc: 'High-capacity water treatment plant for a large manufacturing facility. Delivers consistent potable water quality with automated monitoring and real-time reporting.',                      stats: [{ number: '2 MLD',    label: 'Capacity' }, { number: '24/7',     label: 'Operation' },   { number: '99.9%', label: 'Uptime' }] },
       { image: '/Etp.png',       category: 'ETP Project',  name: 'Textile Effluent Treatment',         location: 'Tiruppur, Tamil Nadu',   desc: 'Zero liquid discharge ETP for a textile dyeing unit. Advanced treatment stages including primary, secondary and tertiary treatment with colour removal and water recycling.',           stats: [{ number: 'ZLD',      label: 'Zero Discharge' }, { number: '800 KLD', label: 'Capacity' }, { number: '95%', label: 'Recycled' }] },
       { image: '/solar_Wpt.png', category: 'Solar + WTP',  name: 'Solar-Powered Village Water Supply', location: 'Hyderabad, Telangana',   desc: 'Sustainable solar-powered water treatment system supplying clean drinking water to 5000+ rural households. Fully off-grid with remote monitoring capabilities.',                   stats: [{ number: '5000+',    label: 'Households' }, { number: '100%',    label: 'Solar Powered' }, { number: '200 KLD', label: 'Capacity' }] },
     ],
@@ -89,8 +89,8 @@ export const DEFAULT_CONTENT = {
     kicker: '// Contact Us',
     heading: "Let's Discuss Your Water Requirement",
     subtext: 'Planning a new water treatment project? Facing a problem with an existing plant? Looking for AMC or 24×7 O&M support? Speak with our team.',
-    phone: '+91 97899 09873',
-    address: 'Chennai · Bengaluru · Hyderabad',
+    phone: '+91 9789909873',
+    address: 'Complete South India\nChennai · Bengaluru · Hyderabad · Coimbatore & Other Regions',
     email: 'info@veersaiwater.com',
     hours: 'Mon – Sat: 9:00 AM – 6:00 PM\nSunday: Closed',
   },
@@ -101,7 +101,7 @@ const ContentContext = createContext(null)
 export function ContentProvider({ children }) {
   const [content, setContent] = useState(() => {
     try {
-      const CONTENT_VERSION = 'v3'
+      const CONTENT_VERSION = 'v4'
       if (localStorage.getItem('vs_content_version') !== CONTENT_VERSION) {
         localStorage.removeItem('vs_content')
         localStorage.setItem('vs_content_version', CONTENT_VERSION)

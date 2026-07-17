@@ -58,13 +58,14 @@ export default function Footer() {
         {/* Cities */}
         <div style={{ marginTop: '3rem', paddingTop: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
           <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '1.75rem' }}>
-            We Serve Across
+            Complete South India
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', flexWrap: 'wrap' }}>
             {[
-              { city: 'Chennai',   state: 'Tamil Nadu' },
-              { city: 'Bengaluru', state: 'Karnataka'  },
-              { city: 'Hyderabad', state: 'Telangana'  },
+              { city: 'Chennai',     state: 'Tamil Nadu' },
+              { city: 'Bengaluru',   state: 'Karnataka'  },
+              { city: 'Hyderabad',   state: 'Telangana'  },
+              { city: 'Coimbatore', state: '& Other Regions' },
             ].map((loc, i, arr) => (
               <div key={loc.city} style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ textAlign: 'center', padding: '0 3rem' }}>
@@ -146,11 +147,14 @@ export default function Footer() {
             Contact
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-              Chennai · Bengaluru · Hyderabad
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.875rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
+              Complete South India
+            </p>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+              Chennai · Bengaluru · Hyderabad · Coimbatore & Other Regions
             </p>
             <a href="tel:+919789909873" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.95rem', color: '#fff', textDecoration: 'none', letterSpacing: '0.02em' }}>
-              +91 97899 09873
+              +91 9789909873
             </a>
             <a href="mailto:info@veersaiwater.com" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#fff'}
@@ -170,7 +174,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Veer Sai Water Solutions. All rights reserved.
         </p>
         <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}>
-          Serving India since 2014 · Chennai · Bengaluru · Hyderabad
+          Serving South India since 2014 · Chennai · Bengaluru · Hyderabad · Coimbatore
         </p>
       </div>
     </footer>

@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react'
 const REASONS = [
   { title: 'Turnkey Project Execution',  desc: 'We manage the complete project from initial assessment and system design to installation, commissioning and handover.' },
   { title: 'Customised Engineering',      desc: 'Every solution is designed based on the actual water quality, project capacity, available space and operational requirement.' },
-  { title: 'Experienced Team',            desc: 'Our team of more than 75 professionals brings technical knowledge, project experience and practical understanding.' },
+  { title: 'Decades of Experience',        desc: 'Our team of more than 75 professionals brings technical knowledge, project experience and practical understanding.' },
   { title: 'Cost-Effective Systems',      desc: 'We focus on reducing water wastage, energy consumption, operating costs and unnecessary maintenance.' },
   { title: '24×7 O&M Support',           desc: 'Our team is available around the clock to support plant operation, maintenance and emergency requirements.' },
   { title: 'Sustainable Solutions',       desc: 'We help customers conserve water, recycle wastewater, recharge groundwater and reduce environmental impact.' },
   { title: 'Proven Track Record',         desc: 'We have served more than 30,000 customers and successfully completed over 600 projects.' },
-  { title: 'Multi-City Presence',         desc: 'We serve customers across Chennai, Bengaluru and Hyderabad with dedicated support teams.' },
+  { title: 'Complete South India',         desc: 'We serve customers across Chennai, Bengaluru, Hyderabad, Coimbatore and other regions with dedicated support teams.' },
 ]
 
 const PROBLEMS = [

@@ -52,13 +52,13 @@ function StepCard({ step, index }) {
         animationDelay: `${index * 0.04}s`,
       }}
     >
-      <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 100, fontSize: '2rem', letterSpacing: '0.08em', color: 'rgba(13,42,94,0.18)', lineHeight: 1, marginBottom: '0.75rem' }}>
+      <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 600, fontSize: '2rem', letterSpacing: '0.08em', color: 'rgba(13,42,94,0.55)', lineHeight: 1, marginBottom: '0.75rem', textAlign: 'center' }}>
         {step.num}
       </p>
-      <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 600, fontSize: '0.9rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0d2137', marginBottom: '0.6rem' }}>
+      <p style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 600, fontSize: '0.9rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0d2137', marginBottom: '0.6rem', textAlign: 'center' }}>
         {step.title}
       </p>
-      <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.875rem', lineHeight: 1.7, color: 'rgba(26,58,92,0.7)' }}>
+      <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.875rem', lineHeight: 1.7, color: 'rgba(26,58,92,0.7)', textAlign: 'center' }}>
         {step.desc}
       </p>
     </div>
@@ -75,7 +75,7 @@ export default function ProcessSection() {
           // How We Work
         </p>
         <h2 style={{ fontFamily: "'Josefin Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#07141f', lineHeight: 1.1 }}>
-          From Consultation to Long-Term Support
+          Monday - Sunday
         </h2>
         <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: '0.875rem', color: '#0d2137', letterSpacing: '0.08em', marginTop: '0.75rem' }}>
           A structured approach from first consultation to continued support

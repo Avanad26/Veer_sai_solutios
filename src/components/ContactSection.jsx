@@ -1,5 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useContent } from '../context/ContentContext'
+
+const WEB3FORMS_KEY = 'bca74971-65ae-4264-a15f-365e66509d6c'
 
 const INFO_ICONS = {
   location: (
@@ -60,6 +62,8 @@ const inputStyle = {
   letterSpacing: '0.02em',
 }
 
+const EMPTY = { name: '', company: '', phone: '', email: '', city: '', requirement: '', projectType: '', capacity: '', message: '' }
+
 export default function ContactSection() {
   const { content } = useContent()
   const c = content.contact
@@ -67,8 +71,43 @@ export default function ContactSection() {
   const leftRef   = useSlide()
   const rightRef  = useSlide()
 
+  const [form,    setForm]    = useState(EMPTY)
+  const [status,  setStatus]  = useState('idle') // idle | sending | success | error
+
+  const set = field => e => setForm(f => ({ ...f, [field]: e.target.value }))
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New Enquiry from ${form.name} — ${form.requirement || 'Veer Sai Website'}`,
+          from_name: 'Veer Sai Website',
+          name: form.name,
+          company: form.company,
+          phone: form.phone,
+          email: form.email,
+          city: form.city,
+          requirement: form.requirement,
+          project_type: form.projectType,
+          capacity: form.capacity,
+          message: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) { setStatus('success'); setForm(EMPTY) }
+      else setStatus('error')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   const INFO = [
-    { icon: INFO_ICONS.location, label: 'Head Office',     value: c.address },
+    { icon: INFO_ICONS.location, label: 'Complete South India', value: c.address },
     { icon: INFO_ICONS.phone,    label: 'Phone',           value: c.phone },
     { icon: INFO_ICONS.email,    label: 'Email',           value: c.email },
     { icon: INFO_ICONS.hours,    label: 'Working Hours',   value: c.hours },
@@ -122,43 +161,50 @@ export default function ContactSection() {
 
         {/* LEFT — Contact form */}
         <div ref={leftRef} className="slide-left" style={{ flex: '1 1 420px' }}>
-          <div style={{
-            background: 'rgba(255,255,255,0.55)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
-            border: '1px solid rgba(26,58,92,0.12)',
-            borderRadius: 20,
-            padding: '2.5rem',
-          }}>
-            {/* Name row */}
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-              {[{ label: 'Name', placeholder: 'Your name' }, { label: 'Company Name', placeholder: 'Company / Organisation' }].map(f => (
-                <div key={f.label} style={{ flex: 1 }}>
-                  <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>{f.label}</label>
-                  <input style={inputStyle} type="text" placeholder={f.placeholder} />
-                </div>
-              ))}
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              background: 'rgba(255,255,255,0.55)',
+              backdropFilter: 'blur(14px)',
+              WebkitBackdropFilter: 'blur(14px)',
+              border: '1px solid rgba(26,58,92,0.12)',
+              borderRadius: 20,
+              padding: '2.5rem',
+            }}
+          >
+            {/* Name + Company */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 140px' }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Name *</label>
+                <input required style={inputStyle} type="text" placeholder="Your name" value={form.name} onChange={set('name')} />
+              </div>
+              <div style={{ flex: '1 1 140px' }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Company Name</label>
+                <input style={inputStyle} type="text" placeholder="Company / Organisation" value={form.company} onChange={set('company')} />
+              </div>
             </div>
 
             {/* Phone + Email */}
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-              {[{ label: 'Phone Number', type: 'tel', placeholder: '+91 97899 09873' }, { label: 'Email Address', type: 'email', placeholder: 'you@example.com' }].map(f => (
-                <div key={f.label} style={{ flex: 1 }}>
-                  <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>{f.label}</label>
-                  <input style={inputStyle} type={f.type} placeholder={f.placeholder} />
-                </div>
-              ))}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 140px' }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Phone Number *</label>
+                <input required style={inputStyle} type="tel" placeholder="+91 9789909873" value={form.phone} onChange={set('phone')} />
+              </div>
+              <div style={{ flex: '1 1 140px' }}>
+                <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Email Address</label>
+                <input style={inputStyle} type="email" placeholder="you@example.com" value={form.email} onChange={set('email')} />
+              </div>
             </div>
 
-            {/* City + Type of Requirement */}
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-              <div style={{ flex: 1 }}>
+            {/* City + Requirement */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>City</label>
-                <input style={inputStyle} type="text" placeholder="Chennai" />
+                <input style={inputStyle} type="text" placeholder="Chennai" value={form.city} onChange={set('city')} />
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Type of Requirement</label>
-                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
+                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }} value={form.requirement} onChange={set('requirement')}>
                   <option value="">Select solution type</option>
                   <option>STP — Sewage Treatment Plant</option>
                   <option>WTP — Water Treatment Plant</option>
@@ -171,46 +217,63 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* New/Existing + Capacity */}
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-              <div style={{ flex: 1 }}>
+            {/* Project Type + Capacity */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Project Type</label>
-                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
+                <select style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }} value={form.projectType} onChange={set('projectType')}>
                   <option value="">New or existing?</option>
                   <option>New Project</option>
                   <option>Existing Plant Upgrade</option>
                   <option>Operation & Maintenance</option>
                 </select>
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: '1 1 140px' }}>
                 <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Required Capacity</label>
-                <input style={inputStyle} type="text" placeholder="e.g. 100 KLD" />
+                <input style={inputStyle} type="text" placeholder="e.g. 100 KLD" value={form.capacity} onChange={set('capacity')} />
               </div>
             </div>
 
             {/* Message */}
             <div style={{ marginBottom: '1.5rem' }}>
               <label style={{ display: 'block', fontFamily: "'Barlow', sans-serif", fontWeight: 500, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(26,58,92,0.6)', marginBottom: '0.4rem' }}>Message</label>
-              <textarea rows={3} style={{ ...inputStyle, resize: 'vertical' }} placeholder="Describe your project or requirement..." />
+              <textarea rows={3} style={{ ...inputStyle, resize: 'vertical' }} placeholder="Describe your project or requirement..." value={form.message} onChange={set('message')} />
             </div>
 
-            <button style={{
-              width: '100%',
-              fontFamily: "'Barlow', sans-serif",
-              fontWeight: 600,
-              fontSize: '0.8rem',
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: '#fff',
-              background: 'linear-gradient(135deg, #1a6eb5, #0e4a82)',
-              border: 'none',
-              borderRadius: 10,
-              padding: '0.9rem 1.5rem',
-              cursor: 'pointer',
-            }}>
-              Submit Your Requirement
+            {/* Success / Error message */}
+            {status === 'success' && (
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: '0.85rem', color: '#16a34a', marginBottom: '1rem', fontWeight: 500 }}>
+                ✓ Thank you! We will get back to you shortly.
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: '0.85rem', color: '#dc2626', marginBottom: '1rem', fontWeight: 500 }}>
+                Something went wrong. Please try again or call us directly.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              style={{
+                width: '100%',
+                fontFamily: "'Barlow', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.8rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#fff',
+                background: status === 'sending' ? 'rgba(14,74,130,0.6)' : 'linear-gradient(135deg, #1a6eb5, #0e4a82)',
+                border: 'none',
+                borderRadius: 10,
+                padding: '0.9rem 1.5rem',
+                cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                transition: 'background 0.2s',
+              }}
+            >
+              {status === 'sending' ? 'Sending…' : 'Submit Your Requirement'}
             </button>
-          </div>
+          </form>
         </div>
 
         {/* RIGHT — Info cards */}

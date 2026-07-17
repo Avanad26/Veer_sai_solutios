@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veer-sai-solutios.onrender.com/sitemap.xml
