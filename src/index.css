@@ -84,7 +84,7 @@
 
 /* Hide background video on all touch devices (phones + tablets/iPads) —
    iOS Safari blocks autoplay on position:fixed elements regardless of size */
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: coarse) and (max-width: 1024px) {
   .desktop-bg-video { display: none; }
 }
 
