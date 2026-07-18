@@ -103,7 +103,7 @@ export default function ContactSection() {
       '',
       divider,
       'Veer Sai Water Solutions',
-      '+91 8122765100  |  info@veersaiwater.com',
+      '+91 8122765100  |  support@veersaiwatertech.com',
       divider,
     ].filter(Boolean).join('\n')
 
